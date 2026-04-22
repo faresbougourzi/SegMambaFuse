@@ -22,18 +22,22 @@ pip install -r requirements.txt
 - **Synapse Multi-organ dataset:**
 Download the processed Synapse dataset from the following  [drive link](https://drive.google.com/file/d/1tGqMx-E4QZpSg2HQbVq5W3KSTHSG0hjK/view?usp=share_link) or download the Synapse data following the Data preparation section of [EMCAD paper](https://github.com/SLDGroup/EMCAD/tree/main). Then move the Synapse dataset into the root path: ./data/Synapse
 
+- **BTCV dataset:**
+The dataset is publicly available on the Synapse website:  [https://www.synapse.org/Synapse:syn3193805/files/](https://www.synapse.org/Synapse:syn3193805/files/) and the preprocessing was conducted following the **Data preparation** procedure described in the [EMCAD repository](https://github.com/SLDGroup/EMCAD/tree/main). Move train and test images into the root path: data_sets/Synapse/dataset13classes and naming train and test: `train_npz_new`,`test_vol_h5_new` respectively
+
 - **ACDC dataset:**
 Download the preprocessed ACDC dataset from [Google Drive](https://drive.google.com/file/d/1CruCQ-jjvA97BX-LIYwXaRMLmp3DN9zc/view) and move it into './data/ACDC/' folder.
 
-- **Polyp datasets:**
-Download the splited polyp datasets from [Google Drive](https://drive.google.com/drive/folders/1XyjNgmPqikGxCaOdP0i6Xzf3deDIpbCV?usp=share_link) and move into './data/polyp/' folder.
+- **ISIC2017 datasets:**
+Download the ISIC17 data at https://challenge.isic-archive.com/data/#2017. Move them (data_train.npy, mask_train.npy, data_val.npy, mask_val.npy, data_test.npy, test_mask.npy) into the root path: data_sets/ISIC2017/processe
 
-### Pretrained model:
-You should download the pretrained PVTv2 model from [Google Drive](https://drive.google.com/drive/folders/1d5F1VjEF1AtTkNO93JwVBBSivE8zImiF?usp=share) or [PVT GitHub](https://github.com/whai362/PVT/releases/tag/v2), and then put it in the './pretrained_pth/pvt/' folder for initialization.
+
+- **ISIC2017 datasets:**
+Download the ISIC17 data at https://challenge.isic-archive.com/data/#2017. Move them (data_train.npy, mask_train.npy, data_val.npy, mask_val.npy, data_test.npy, test_mask.npy) into the root path: data_sets/ISIC2017/processe
 
 ### Training:
 ```
-cd into EMCAD
+cd into SegMambaFuse
 python -W ignore train_synapse.py --root_path /path/to/train/data --volume_path path/to/test/data --encoder pvt_v2_b2         # replace --root_path and --volume_path with your actual path to data.
 
 ```
@@ -43,7 +47,7 @@ You can download the trained weights on Synapse dataset from [Google Drive](http
 
 ### Testing:
 ```
-cd into EMCAD 
+cd into SegMambaFuse 
 ```
 
 ## Acknowledgement
@@ -52,11 +56,8 @@ We are very grateful for these excellent works [timm](https://github.com/hugging
 ## Citations
 
 ``` 
-@inproceedings{rahman2024emcad,
-  title={Emcad: Efficient multi-scale convolutional attention decoding for medical image segmentation},
-  author={Rahman, Md Mostafijur and Munir, Mustafa and Marculescu, Radu},
-  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
-  pages={11769--11779},
-  year={2024}
+@inproceedings{bui2026SegMambaFuse,
+  title={SegMambaFuse:  Multi-Level Attention and Adaptive Mamba Fusion for Medical Image Segmentation},
+
 }
 ```
